@@ -8,9 +8,17 @@ public class ArrayReview
      * Assume there are no null employees in the array.
      * IMPORTANT:  Use a regular for loop. 
      */
-    public static String getNames(Employee[] employees)
+    public static String getNames(Employee[] data)
     {
-        return "";
+    String str = "";
+    for (int i=0;i<data.length;i++)
+      {
+        if(data[i].getYears() > 20)
+          str = str + data[i].getName() + " ";
+      }
+      if (str.length()>0)
+        str = str.substring(0, str.length()-1);
+        return str;
     }
 
     /**
@@ -21,6 +29,19 @@ public class ArrayReview
      */
     public static double average(double[] nums)
     {
-        return 0.0;
+      int count=0;
+      double sum=0.0; 
+      for (double v : nums)
+      {
+          if (v > 0)
+          {
+            count++;
+            sum += v;
+          }   
+      }
+      if (count > 0)
+        return sum/count;
+      else return 0.0;
     }
 }
+
